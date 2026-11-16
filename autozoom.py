@@ -12,6 +12,7 @@ import h5py
 import io
 import math
 import moviepy
+from moviepy.video.io.ImageSequenceClip import ImageSequenceClip
 import numpy
 import os
 import random
@@ -112,5 +113,5 @@ if __name__ == '__main__':
 		npyResult = npyResult + list(reversed(npyResult))[1:]
 	# end
 
-	moviepy.ImageSequenceClip(sequence=npyResult, fps=args_fltFps).write_videofile(args_strOut)
+	ImageSequenceClip(sequence=npyResult, fps=args_fltFps).write_videofile(args_strOut)
 # end
