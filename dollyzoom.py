@@ -12,6 +12,7 @@ import h5py
 import io
 import math
 import moviepy
+from moviepy.editor import ImageSequenceClip
 import numpy
 import os
 import random
@@ -166,5 +167,5 @@ if __name__ == '__main__':
 		'boolInpaint': True
 	})
 
-	moviepy.ImageSequenceClip(sequence=[ npyFrame[:, :, ::-1] for npyFrame in npyResult + list(reversed(npyResult))[1:-1] ], fps=25).write_videofile(args_strOut)
+	ImageSequenceClip(sequence=[ npyFrame[:, :, ::-1] for npyFrame in npyResult + list(reversed(npyResult))[1:-1] ], fps=25).write_videofile(args_strOut)
 # end
