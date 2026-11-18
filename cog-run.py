@@ -4,6 +4,7 @@ import cupy
 import cv2
 import math
 import moviepy
+from moviepy.editor import ImageSequenceClip
 import numpy
 import os
 import re
@@ -74,7 +75,7 @@ class Predictor(BasePredictor):
 
         objOutput = Path(tempfile.mkdtemp()) / 'output.mp4'
 
-        moviepy.ImageSequenceClip(sequence=[ npyFrame[:, :, ::-1] for npyFrame in npyResult + list(reversed(npyResult))[1:-1] ], fps=25).write_videofile(str(objOutput))
+        ImageSequenceClip(sequence=[ npyFrame[:, :, ::-1] for npyFrame in npyResult + list(reversed(npyResult))[1:-1] ], fps=25).write_videofile(str(objOutput))
 
         return objOutput
     # end
